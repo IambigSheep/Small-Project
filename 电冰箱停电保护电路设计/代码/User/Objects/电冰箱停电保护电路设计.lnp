@@ -1,0 +1,6 @@
+".\Objects\main.obj",
+".\Objects\delay.obj",
+".\Objects\bsp_ds1302.obj",
+".\Objects\usart.obj" 
+TO ".\Objects\电冰箱停电保护电路设计" 
+PRINT(".\Listings\电冰箱停电保护电路设计.m51") RAMSIZE(256) 

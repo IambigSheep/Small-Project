@@ -1,0 +1,387 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        05/15/2022  22:27:15  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL_C51\C51\BIN\BL51.EXE .\Objects\main.obj, .\Objects\delay.obj, .\Objects\bsp_ds1302.obj, .\Objects\usart.obj TO .
+>> \Objects\电冰箱停电保护电路设计 PRINT (.\Listings\电冰箱停电保护电路设计.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  .\Objects\delay.obj (DELAY)
+  .\Objects\bsp_ds1302.obj (BSP_DS1302)
+  .\Objects\usart.obj (USART)
+  D:\KEIL_C51\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\KEIL_C51\C51\LIB\C51S.LIB (?C?CLDPTR)
+  D:\KEIL_C51\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  D:\KEIL_C51\C51\LIB\C51S.LIB (?C?CSTPTR)
+  D:\KEIL_C51\C51\LIB\C51S.LIB (?C?CSTOPTR)
+  D:\KEIL_C51\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\电冰箱停电保护电路设计 (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0003H     UNIT         ?DT?MAIN
+            DATA    000BH     0003H     UNIT         ?DT?_SENDSTRING?USART
+                    000EH     0012H                  *** GAP ***
+            BIT     0020H.0   0000H.1   UNIT         ?BI?MAIN
+            BIT     0020H.1   0000H.1   UNIT         ?BI?USART
+                    0020H.2   0000H.6                *** GAP ***
+            IDATA   0021H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     008CH     UNIT         ?C_C51STARTUP
+            CODE    008FH     007AH     UNIT         ?C?LIB_CODE
+            CODE    0109H     0064H     UNIT         ?PR?MAIN?MAIN
+            CODE    016DH     0052H     UNIT         ?PR?_SET_RTC?BSP_DS1302
+            CODE    01BFH     0045H     UNIT         ?PR?_READ_RTC?BSP_DS1302
+            CODE    0204H     0034H     UNIT         ?PR?_READ_DS1302_BYTE?BSP_DS1302
+            CODE    0238H     0025H     UNIT         ?PR?_SENDSTRING?USART
+            CODE    025DH     001DH     UNIT         ?PR?UARTINIT?USART
+            CODE    027AH     001CH     UNIT         ?PR?_WRITE_DS1302_BYTE?BSP_DS1302
+            CODE    0296H     001AH     UNIT         ?PR?_DELAY1MS?DELAY
+            CODE    02B0H     0013H     UNIT         ?PR?_WRITE_DS1302?BSP_DS1302
+            CODE    02C3H     0010H     UNIT         ?PR?_SENDDATA?USART
+            CODE    02D3H     0006H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\电冰箱停电保护电路设计 (MAIN)
+
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/15/2022  22:27:15  PAGE 2
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN
+  +--> ?PR?_SET_RTC?BSP_DS1302
+  +--> ?PR?UARTINIT?USART
+  +--> ?PR?_READ_RTC?BSP_DS1302
+  +--> ?PR?_SENDDATA?USART
+  +--> ?PR?_DELAY1MS?DELAY
+
+?PR?_SET_RTC?BSP_DS1302
+  +--> ?PR?_WRITE_DS1302_BYTE?BSP_DS1302
+
+?PR?_WRITE_DS1302_BYTE?BSP_DS1302
+  +--> ?PR?_WRITE_DS1302?BSP_DS1302
+
+?PR?_READ_RTC?BSP_DS1302
+  +--> ?PR?_READ_DS1302_BYTE?BSP_DS1302
+
+?PR?_READ_DS1302_BYTE?BSP_DS1302
+  +--> ?PR?_WRITE_DS1302?BSP_DS1302
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\电冰箱停电保护电路设计 (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:0080H.7       PUBLIC        RELAY
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:0008H         PUBLIC        ucRtc
+  D:00E8H         PUBLIC        P4
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:0109H         PUBLIC        main
+  B:0020H.0       PUBLIC        time_flag
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:0109H         LINE#         22
+  C:0109H         LINE#         23
+  C:0109H         LINE#         24
+  C:0112H         LINE#         25
+  C:0115H         LINE#         27
+  C:0115H         LINE#         28
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/15/2022  22:27:15  PAGE 3
+
+
+  C:0115H         LINE#         29
+  C:011EH         LINE#         31
+  C:0128H         LINE#         32
+  C:0133H         LINE#         33
+  C:013EH         LINE#         34
+  C:0149H         LINE#         42
+  C:0150H         LINE#         43
+  C:0155H         LINE#         46
+  C:015AH         LINE#         47
+  C:015FH         LINE#         48
+  C:0164H         LINE#         49
+  C:016BH         LINE#         50
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00E8H         PUBLIC        P4
+  C:0296H         PUBLIC        _Delay1ms
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _DELAY1MS
+  D:0006H         SYMBOL        num
+  -------         DO            
+  D:0005H         SYMBOL        i
+  D:0004H         SYMBOL        j
+  -------         ENDDO         
+  C:0296H         LINE#         3
+  C:0296H         LINE#         4
+  C:0296H         LINE#         6
+  C:029FH         LINE#         7
+  C:029FH         LINE#         8
+  C:02A0H         LINE#         9
+  C:02A2H         LINE#         10
+  C:02A4H         LINE#         12
+  C:02A4H         LINE#         13
+  C:02A6H         LINE#         14
+  C:02A8H         LINE#         15
+  C:02AFH         LINE#         16
+  -------         ENDPROC       _DELAY1MS
+  -------         ENDMOD        DELAY
+
+  -------         MODULE        BSP_DS1302
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00E8H         PUBLIC        P4
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/15/2022  22:27:15  PAGE 4
+
+
+  C:01BFH         PUBLIC        _Read_Rtc
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:016DH         PUBLIC        _Set_Rtc
+  C:0204H         PUBLIC        _Read_Ds1302_Byte
+  B:0090H.1       PUBLIC        SDA
+  B:0090H.0       PUBLIC        SCK
+  C:0282H         PUBLIC        _Write_Ds1302_Byte
+  D:00C8H         PUBLIC        T2CON
+  C:02B0H         PUBLIC        _Write_Ds1302
+  B:0090H.2       PUBLIC        RST
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _WRITE_DS1302
+  D:0007H         SYMBOL        temp
+  -------         DO            
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+  C:02B0H         LINE#         12
+  C:02B0H         LINE#         13
+  C:02B0H         LINE#         15
+  C:02B2H         LINE#         16
+  C:02B2H         LINE#         17
+  C:02B4H         LINE#         18
+  C:02B8H         LINE#         19
+  C:02BCH         LINE#         20
+  C:02BEH         LINE#         21
+  C:02C2H         LINE#         22
+  -------         ENDPROC       _WRITE_DS1302
+  -------         PROC          L?0013
+  -------         ENDPROC       L?0013
+  -------         PROC          _WRITE_DS1302_BYTE
+  D:0007H         SYMBOL        address
+  D:0005H         SYMBOL        dat
+  C:0282H         LINE#         24
+  C:0282H         LINE#         25
+  C:0282H         LINE#         26
+  C:0285H         LINE#         27
+  C:0288H         LINE#         28
+  C:028BH         LINE#         29
+  C:028EH         LINE#         30
+  C:0293H         LINE#         31
+  C:0295H         LINE#         32
+  -------         ENDPROC       _WRITE_DS1302_BYTE
+  -------         PROC          _READ_DS1302_BYTE
+  D:0007H         SYMBOL        address
+  -------         DO            
+  D:0007H         SYMBOL        i
+  D:0005H         SYMBOL        temp
+  -------         ENDDO         
+  C:0204H         LINE#         34
+  C:0204H         LINE#         35
+  C:0204H         LINE#         36
+  C:0206H         LINE#         37
+  C:0209H         LINE#         38
+  C:020CH         LINE#         39
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/15/2022  22:27:15  PAGE 5
+
+
+  C:020FH         LINE#         40
+  C:0212H         LINE#         41
+  C:0214H         LINE#         42
+  C:0214H         LINE#         43
+  C:0216H         LINE#         44
+  C:021AH         LINE#         45
+  C:021DH         LINE#         46
+  C:0220H         LINE#         47
+  C:0222H         LINE#         48
+  C:0226H         LINE#         49
+  C:0229H         LINE#         50
+  C:022CH         LINE#         51
+  C:022FH         LINE#         52
+  C:0232H         LINE#         53
+  C:0235H         LINE#         54
+  C:0237H         LINE#         55
+  -------         ENDPROC       _READ_DS1302_BYTE
+  -------         PROC          _SET_RTC
+  D:0001H         SYMBOL        ucRtc
+  -------         DO            
+  D:0005H         SYMBOL        temp
+  -------         ENDDO         
+  C:016DH         LINE#         58
+  C:016DH         LINE#         59
+  C:016DH         LINE#         61
+  C:0174H         LINE#         63
+  C:0181H         LINE#         64
+  C:0186H         LINE#         65
+  C:0196H         LINE#         66
+  C:019BH         LINE#         67
+  C:01B3H         LINE#         68
+  C:01B8H         LINE#         70
+  -------         ENDPROC       _SET_RTC
+  -------         PROC          _READ_RTC
+  D:0001H         SYMBOL        ucRtc
+  -------         DO            
+  D:0007H         SYMBOL        temp
+  -------         ENDDO         
+  C:01BFH         LINE#         75
+  C:01BFH         LINE#         76
+  C:01BFH         LINE#         79
+  C:01C4H         LINE#         80
+  C:01D4H         LINE#         81
+  C:01D9H         LINE#         82
+  C:01ECH         LINE#         83
+  C:01F1H         LINE#         84
+  -------         ENDPROC       _READ_RTC
+  -------         ENDMOD        BSP_DS1302
+
+  -------         MODULE        USART
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00E8H         PUBLIC        P4
+  C:0238H         PUBLIC        _SendString
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/15/2022  22:27:15  PAGE 6
+
+
+  C:02C3H         PUBLIC        _SendData
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  B:0098H.1       PUBLIC        TI
+  D:0099H         PUBLIC        SBUF
+  D:0087H         PUBLIC        PCON
+  D:0098H         PUBLIC        SCON
+  C:025DH         PUBLIC        UartInit
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  D:008EH         PUBLIC        AUXR
+  B:0020H.1       PUBLIC        busy
+  D:00E0H         PUBLIC        ACC
+  B:00A8H.3       PUBLIC        ET1
+  D:008DH         PUBLIC        TH1
+  D:008BH         PUBLIC        TL1
+  B:0088H.6       PUBLIC        TR1
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          UARTINIT
+  C:025DH         LINE#         4
+  C:025DH         LINE#         5
+  C:025DH         LINE#         6
+  C:0260H         LINE#         7
+  C:0263H         LINE#         8
+  C:0266H         LINE#         9
+  C:0269H         LINE#         10
+  C:026CH         LINE#         11
+  C:026FH         LINE#         12
+  C:0272H         LINE#         13
+  C:0275H         LINE#         14
+  C:0277H         LINE#         15
+  C:0279H         LINE#         17
+  -------         ENDPROC       UARTINIT
+  -------         PROC          _SENDDATA
+  D:0007H         SYMBOL        dat
+  C:02C3H         LINE#         23
+  C:02C3H         LINE#         24
+  C:02C3H         LINE#         25
+  C:02C6H         LINE#         26
+  C:02C7H         LINE#         27
+  C:02C9H         LINE#         28
+  C:02CBH         LINE#         29
+  C:02CEH         LINE#         30
+  C:02D0H         LINE#         31
+  C:02D2H         LINE#         32
+  -------         ENDPROC       _SENDDATA
+  -------         PROC          _SENDSTRING
+  D:000BH         SYMBOL        s
+  C:0238H         LINE#         41
+  C:023EH         LINE#         42
+  C:023EH         LINE#         43
+  C:0249H         LINE#         44
+  C:0249H         LINE#         45
+  C:025AH         LINE#         46
+  C:025CH         LINE#         47
+  -------         ENDPROC       _SENDSTRING
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/15/2022  22:27:15  PAGE 7
+
+
+  -------         ENDMOD        USART
+
+  -------         MODULE        ?C?CLDPTR
+  C:008FH         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        ?C?CLDOPTR
+  C:00A8H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?CSTPTR
+  C:00D5H         PUBLIC        ?C?CSTPTR
+  -------         ENDMOD        ?C?CSTPTR
+
+  -------         MODULE        ?C?CSTOPTR
+  C:00E7H         PUBLIC        ?C?CSTOPTR
+  -------         ENDMOD        ?C?CSTOPTR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SENDSTRING?USART
+
+Program Size: data=15.2 xdata=0 code=729
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)
